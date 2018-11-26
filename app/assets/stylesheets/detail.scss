@@ -3,7 +3,7 @@
 .detail {
     width: 640px;
     font-size: $normal;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, .16), 0 0 2px rgba(0, 0, 0, .12);
+    box-shadow: $shadow;
     padding: 16px;
 
     dl.detail__fields {
