@@ -20,24 +20,31 @@ Rubyが動く環境であれば、以下の手順でインストールできま�
 $ git clone https://github.com/t-hane/issue_tracker
 $ cd issue_tracker
 $ bundle install
-$ bin/rails db:create db:migrate
+$ bundle exec rails db:create db:migrate
 ```
 
 ### サンプルデータの作成
 サンプルデータがないと厳しいです。
 ```bash
-$ bin/rails sample:build
+$ bundle exec rails sample:build
 ```
 
 ### 起動とテスト
 ```bash
-$ bin/rails server
+$ bundle exec rails server
 ```
 
 ブラウザで、
 http://localhost:3000/
 にアクセスしてください。
+ユーザー名 yamada パスワード test でログインできます。
 
+## テスト
+テストフレームワークに RSpec を使用しています。
+```bash
+$ bundle exec rspec
+```
+今のところ、モデルのテストを一部、記載しています。
 
 ## 注意書き
 * 今後も Ruby on Rails の新しい機能を紹介する場合には、このアプリケーションを利用する場合があります。
