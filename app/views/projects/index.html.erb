@@ -1,0 +1,23 @@
+<div>
+  <%= link_to t(:'helpers.action.project.new'), :new_project, class: 'button button--transparent button--accent' %>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th><%= t :'activerecord.attributes.project.name' %></th>
+    <th><%= t :'activerecord.attributes.project.deadline' %></th>
+    <th><%= t :'activerecord.attributes.project.progress' %></th>
+    <th><%= t :'helpers.action.project.detail' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.name %></td>
+      <td><%= project.deadline %></td>
+      <td><%= number_to_percentage project.progress, precision: 1 %></td>
+      <td><%= link_to t(:'helpers.action.project.detail'), project_path(project), class: 'button button--transparent' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

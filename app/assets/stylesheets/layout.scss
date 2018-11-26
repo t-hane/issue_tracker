@@ -1,0 +1,23 @@
+@import "common";
+
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: $header-height 0 0;
+    padding: 0;
+
+    .layout__header {
+        position: fixed;
+        height: $header-height;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .layout__main {
+        padding: 16px;
+    }
+}

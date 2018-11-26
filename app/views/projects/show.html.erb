@@ -1,0 +1,26 @@
+<%= link_to t(:'activerecord.helpers.action.project.index'), :projects, class: 'button button--cancel button--transparent' %>
+
+<div class="detail">
+
+  <dl class="detail__fields">
+    <dt><%= t :'activerecord.attributes.project.name' %></dt>
+    <dd><%= @project.name %></dd>
+    <dt><%= t :'activerecord.attributes.project.deadline' %></dt>
+    <dd><%= @project.deadline %></dd>
+    <dt><%= t :'activerecord.attributes.project.goal' %></dt>
+    <dd><%= simple_format @project.goal %></dd>
+    <dt><%= t :'activerecord.attributes.project.number_of_issues' %></dt>
+    <dd><%= @project.number_of_issues %></dd>
+    <dt><%= t :'activerecord.attributes.project.number_of_open_issues' %></dt>
+    <dd><%= @project.number_of_open_issues %></dd>
+    <dt><%= t :'activerecord.attributes.project.number_of_closed_issues' %></dt>
+    <dd><%= @project.number_of_closed_issues %></dd>
+    <dt><%= t :'activerecord.attributes.project.progress' %></dt>
+    <dd><%= number_to_percentage @project.progress, precision: 1 %></dd>
+  </dl>
+
+  <div class="detail__actions">
+    <%= link_to t(:'helpers.action.project.edit'), edit_project_path(@project), class: 'button button--transparent' %>
+    <%= link_to t(:'helpers.action.issue.project-index'), project_issues_path(@project), class: 'button button--transparent' %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<%
+  active =
+    case params[:controller]
+      when 'projects'
+        :projects
+      when 'issues'
+        @project.present? ? :projects : :my_issues
+      when 'users'
+        :users
+      else
+        nil
+    end
+%>
+
+<header class="layout__header header header--<%= active %>">
+  <div class="header__title">
+    <%= t :application_name %>
+  </div>
+
+  <% if current_user.present? %>
+    <%= link_to t(:'helpers.action.project.index'), :projects, class: "header__item header--projects" %>
+    <%= link_to t(:'helpers.action.issue.my-index'), :issues, class: "header__item header--my_issues" %>
+    <%= link_to t(:'helpers.action.user.index'), :users, class: "header__item header--users" %>
+    <div class="header__spacer"></div>
+    <%= link_to current_user.name, edit_user_path(current_user), class: 'header__item' %>
+    <%= link_to t(:'helpers.submit.user.logout'), :login, method: :delete, class: 'header__item' %>
+  <% end %>
+</header>

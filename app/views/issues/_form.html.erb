@@ -1,0 +1,42 @@
+<%
+  url = if @issue.persisted?
+          if @project.present?
+            project_issue_path(@project, @issue)
+          else
+            issue_path(@issue)
+          end
+        elsif @project.present?
+          project_issues_path(@project)
+        else
+          :issues
+        end
+%>
+
+<%= form_with model: @issue, url: url, class: 'form', local: true do |form| %>
+  <%= form.hidden_field :project_id %>
+  <div class="form__field">
+    <%= form.label :title, class: 'form__label' %>
+    <%= form.text_field :title, class: 'form__text' %>
+    <%= form_field_errors @issue, :title %>
+  </div>
+  <div class="form__field">
+    <%= form.label :content, class: 'form__label' %>
+    <%= form.text_area :content, class: 'form__text form--multiline' %>
+    <%= form_field_errors @issue, :content %>
+  </div>
+  <div class="form__field">
+    <%= form.label :deadline, class: 'form__label' %>
+    <%= form.date_field :deadline, class: 'form__text' %>
+    <%= form_field_errors @issue, :deadline %>
+  </div>
+  <div class="form__field">
+    <%= form.label :user_id, class: 'form__label' %>
+    <%= form.collection_select :user_id, User.all, :id, :name, {}, class: 'form__text' %>
+    <%= form_field_errors @issue, :deadline %>
+  </div>
+
+  <div class="form__actions">
+    <%= link_to t(:'helpers.action.issue.cancel'), url, class: 'button button--cancel button--transparent' %>
+    <%= form.button class: 'button' %>
+  </div>
+<% end %>

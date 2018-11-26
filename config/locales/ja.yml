@@ -1,0 +1,96 @@
+ja:
+  application_name: イシュートラッカー
+  "true": はい
+  "false": いいえ
+  activerecord:
+    models:
+      user: ユーザー
+      project: プロジェクト
+      issue: イシュー
+    attributes:
+      user:
+        username: ユーザー名
+        name: 氏名
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
+      issue:
+        title: 件名
+        content: 内容
+        deadline: 納期
+        closed: 解決済
+        user_id: アサイン
+        project_id: プロジェクト
+      project:
+        name: プロジェクト名
+        deadline: 納期
+        number_of_issues: 全件
+        number_of_open_issues: 未解決
+        number_of_closed_issues: 解決済
+        progress: 進捗率
+        issues: イシューリスト
+        goal: ゴール
+    helpers:
+      action:
+        project:
+          index: プロジェクト一覧
+  helpers:
+    submit:
+      user:
+        login: ログイン
+        logout: ログアウト
+        create: ユーザーを登録する
+        update: 更新する
+      project:
+        create: プロジェクトを登録する
+        update: プロジェクトを更新する
+      issue:
+        create: イシューを登録する
+        update: イシューを更新する
+    action:
+      project:
+        index: プロジェクト一覧
+        new: 新しいプロジェクト
+        detail: 詳細
+        show: プロジェクト
+        edit: 編集
+        cancel: キャンセル
+      user:
+        index: ユーザー一覧
+        new: ユーザーの登録
+        edit: 編集
+        cancel: キャンセル
+      issue:
+        new: 新しいイシュー
+        edit: 編集
+        cancel: キャンセル
+        detail: 詳細
+        index: イシュー一覧
+        my-index: マイイシュー一覧
+        project-index: プロジェクトイシュー一覧
+        close: 解決
+        confirm-close: このイシューを解決済としてもよろしいですか？
+
+  errors:
+    messages:
+      confirmation: 一致していません。
+      accepted: 同意が必要です。
+      blank: 入力してください。
+      present: 入力することはできません。
+      too_short: '%{count}文字以内で入力してください。'
+      too_long: '%{count}文字以上で入力してください。'
+      wrong_length: '%{count}文字で入力してください。'
+      taken: すでに取得されています。
+      invalid: 指定の書式で入力してください。
+      inclusion: 選択肢の中から選択してください。
+      exclusion: 選択することはできません。
+      required: 選択してください。
+      not_a_number: 数字を入力してください。
+      greater_than: '%{count}より大きい数字を入力してください。'
+      greater_than_or_equal_to: '%{count}以上の数字を入力してください。'
+      less_than: '%{count}より小さい数字を入力してください。'
+      less_than_or_equal_to: '%{count}以下の数字を入力してください。'
+      not_an_integer: 整数で入力してください。
+      odd: 奇数を入力してください。
+      even: 偶数を入力してください。
+      record_invalid: バリデーションでエラーが発生しました。

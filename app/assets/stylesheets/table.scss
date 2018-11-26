@@ -1,0 +1,30 @@
+@import "common";
+
+table.table {
+    border-collapse: collapse;
+
+    box-shadow: $shadow;
+
+    thead {
+        background-color: $title-color;
+    }
+
+    th {
+        padding: 8px 16px;
+        text-align: center;
+        font-weight: bold;
+        font-size: $normal;
+    }
+
+    td {
+        border-top: 1px solid $border-color;
+        padding: 8px 16px;
+        font-weight: normal;
+        text-align: left;
+        font-size: $normal;
+
+        &.table--numeric {
+            text-align: right;
+        }
+    }
+}

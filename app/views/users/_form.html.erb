@@ -1,0 +1,36 @@
+<%= form_with model: @user, class: 'form', local: true do |form| %>
+  <div class="field__field-group">
+    <div class="form__field">
+      <%= form.label :username, class: 'form__label' %>
+      <%= form.text_field :username, class: 'form__text' %>
+      <%= form_field_errors @user, :username %>
+    </div>
+    <div class="form__field">
+      <%= form.label :name, class: 'form__label' %>
+      <%= form.text_field :name, class: 'form__text' %>
+      <%= form_field_errors @user, :name %>
+    </div>
+  </div>
+  <div class="form__field">
+    <%= form.label :email, class: 'form__label' %>
+    <%= form.email_field :email, class: 'form__text' %>
+    <%= form_field_errors @user, :email %>
+  </div>
+  <div class="form__field-group">
+    <div class="form__field">
+      <%= form.label :password, class: 'form__label' %>
+      <%= form.password_field :password, class: 'form__text' %>
+      <%= form_field_errors @user, :password %>
+    </div>
+    <div class="form__field">
+      <%= form.label :password_confirmation, class: 'form__label' %>
+      <%= form.password_field :password_confirmation, class: 'form__text' %>
+      <%= form_field_errors @user, :password_confirmation %>
+    </div>
+  </div>
+
+  <div class="form__actions">
+    <%= link_to t(:'helpers.action.user.cancel'), :users, class: 'button button--cancel button--transparent' %>
+    <%= form.button class: 'button' %>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+@import "common";
+
+.button {
+    display: inline-block;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-size: $normal;
+    padding: 6px 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+
+    &.button--accent {
+        background-color: $accent-color;
+    }
+
+    &.button--cancel {
+        background-color: $cancel-color;
+        color: $font-secondary-color;
+    }
+
+    &.button--transparent {
+        padding: 6px;
+        color: $primary-color;
+        background-color: initial;
+
+        &.button--accent {
+            color: $accent-color;
+        }
+
+        &.button--cancel {
+            color: $font-secondary-color;
+        }
+    }
+}

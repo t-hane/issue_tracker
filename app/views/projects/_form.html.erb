@@ -1,0 +1,26 @@
+<%= form_with model: @project, class: 'form', local: true do |form| %>
+  <div class="form__field">
+    <%= form.label :name, class: 'form__label' %>
+    <%= form.text_field :name, class: 'form__text' %>
+    <%= form_field_errors @project, :name %>
+  </div>
+  <div class="form__field">
+    <%= form.label :goal, class: 'form__label' %>
+    <%= form.text_area :goal, class: 'form__text form--multiline' %>
+    <%= form_field_errors @project, :goal %>
+  </div>
+  <div class="form__field">
+    <%= form.label :deadline, class: 'form__label' %>
+    <%= form.date_field :deadline, class: 'form__text' %>
+    <%= form_field_errors @project, :deadline %>
+  </div>
+
+  <div class="form__actions">
+    <% if @project.persisted? %>
+      <%= link_to t(:'helpers.action.project.cancel'), project_path(@project), class: 'button button--cancel button--transparent' %>
+    <% else %>
+      <%= link_to t(:'helpers.action.project.cancel'), :projects, class: 'button button--cancel button--transparent' %>
+    <% end %>
+    <%= form.button class: 'button' %>
+  </div>
+<% end %>

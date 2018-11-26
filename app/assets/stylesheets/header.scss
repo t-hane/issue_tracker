@@ -1,0 +1,42 @@
+@import "common";
+.header {
+    background-color: darken($primary-color, 30%);
+    display: flex;
+    align-items: stretch;
+
+    .header__title {
+        color: white;
+        font-weight: bold;
+        padding: 0 16px 0 4px;
+        display: flex;
+        align-items: center;
+        font-size: $large;
+    }
+
+    .header__spacer {
+        flex-grow: 1;
+    }
+
+    .header__item {
+        color: white;
+        padding: 0 8px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        font-size: $normal;
+    }
+
+    @mixin selected {
+        background-color: darken($primary-color, 10%);
+    }
+
+    &.header--projects .header__item.header--projects {
+        @include selected;
+    }
+    &.header--my_issues .header__item.header--my_issues {
+        @include selected;
+    }
+    &.header--users .header__item.header--users {
+        @include selected;
+    }
+}

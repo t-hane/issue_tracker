@@ -1,0 +1,74 @@
+@import "common";
+
+
+.form {
+    width: 640px;
+    max-width: 100%;
+    box-shadow: $shadow;
+    padding: 16px;
+
+    &.form--narrow {
+        width: 320px;
+    }
+
+    .form__field {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .form__field-group {
+        display: flex;
+        margin-bottom: 8px;
+        .form__field {
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-bottom: 0;
+            margin-right: 8px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .form__label {
+        display: block;
+        font-size: $small;
+        color: $primary-color;
+        width: 100%;
+    }
+
+    .form__text {
+        font-size: $normal;
+        line-height: 1.5;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 4px 0;
+        outline: none;
+
+        border: none;
+        border-bottom: 2px solid $border-color;
+        transition: $fast;
+
+        &.form--multiline {
+            height: 10em;
+        }
+
+
+        &:focus {
+            border-bottom-color: $primary-color;
+            transition: $fast;
+        }
+    }
+
+    .form__errors {
+        .form__error {
+            font-size: $small;
+            color: $error-color;
+        }
+    }
+
+    .form__actions {
+        text-align: right;
+    }
+}

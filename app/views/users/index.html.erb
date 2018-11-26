@@ -1,0 +1,23 @@
+<div>
+  <%= link_to t(:'helpers.action.user.new'), :new_user, class: 'button button--transparent button--accent' %>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th><%= t :'activerecord.attributes.user.username' %></th>
+    <th><%= t :'activerecord.attributes.user.name' %></th>
+    <th><%= t :'activerecord.attributes.user.email' %></th>
+    <th><%= t :'helpers.action.user.edit' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to t(:'helpers.action.user.edit'), edit_user_path(user), class: 'button button--transparent' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
