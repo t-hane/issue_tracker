@@ -14,10 +14,6 @@ namespace :sample do
                       email: 'sato@example.com',
                       password: 'test', password_confirmation: 'test'
 
-    u4 = User.create! username: 'takahashi', name: '高橋 優子',
-                      email: 'takahashi@example.com',
-                      password: 'test', password_confirmation: 'test'
-
     p1 = Project.create! name: '忘年会', deadline: '2018-12-25', goal: <<TEXT
 忘年会を開催してみんなで楽しむ。
 TEXT
@@ -25,8 +21,7 @@ TEXT
 やりがいのある仕事の仕方をする。
 TEXT
 
-
-    p1.issues.create! title: '場所の予約', user: u1, deadline: '2018-12-15', content: <<TEXT
+    p1.issues.create! title: '場所の予約', user: u1, deadline: '2018-01-15', content: <<TEXT
 場所を予約する。
 人数をちゃんと伝える。
 TEXT
@@ -34,7 +29,13 @@ TEXT
 みんなに参加希望を募って最終的な参加者を確定する。
 TEXT
 
+    p2.issues.create! title: '提案を集める', user: u3, deadline: '2018-12-18', content: <<TEXT
+みんなからアイディアを集める。
+TEXT
+
+    p2.issues.create! title: '労働法の確認', user: u1, deadline: '2018-12-20', content: <<TEXT
+労働法の変更点を確認しておく。
+TEXT
+
   end
-
-
 end
