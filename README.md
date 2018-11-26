@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このアプリケーションは、「初心者向け Ruby on Rails 勉強会 in 門前仲町」の学習用に作成したものです。
 
-Things you may want to cover:
+## アプリケーションの内容
+イシュートラッカーです。
 
-* Ruby version
+* プロジェクト登録
+* プロジェクト一覧
+* プロジェクト進捗表示(解決したイシュー ÷ 全イシュー)
+* イシュー登録
+* イシューステータス管理（未解決・解決済のみ）
+* ユーザー登録
 
-* System dependencies
+## 動かしてみる
 
-* Configuration
+### インストール
+Rubyが動く環境であれば、以下の手順でインストールできます。
+```bash
+$ git clone https://github.com/t-hane/issue_tracker
+$ cd issue_tracker
+$ bundle install
+$ bin/rails db:create db:migrate
+```
 
-* Database creation
+### サンプルデータの作成
+サンプルデータがないと厳しいです。
+```bash
+$ bin/rails sample:build
+```
 
-* Database initialization
+### 起動とテスト
+```bash
+$ bin/rails server
+```
 
-* How to run the test suite
+ブラウザで、
+http://localhost:3000/
+にアクセスしてください。
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+## 注意書き
+* 今後も Ruby on Rails の新しい機能を紹介する場合には、このアプリケーションを利用する場合があります。
+* このアプリケーションは、GPL v3 で配布する予定です。
