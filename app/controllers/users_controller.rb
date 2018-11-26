@@ -1,3 +1,4 @@
+# noinspection RailsChecklist01
 class UsersController < ApplicationController
 
   before_action :enforce_login

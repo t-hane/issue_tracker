@@ -1,3 +1,4 @@
+# noinspection RailsChecklist01
 class LoginController < ApplicationController
 
   def show

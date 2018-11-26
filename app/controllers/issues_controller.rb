@@ -1,3 +1,4 @@
+# noinspection RailsChecklist01
 class IssuesController < ApplicationController
 
   before_action :enforce_login
@@ -17,9 +18,11 @@ class IssuesController < ApplicationController
   end
 
   def create
-    @project = Project.find params[:project_id]
-    @issue = @project.issues.build params.require(:issue).permit(:title, :content, :deadline, :project_id, :user_id)
-    @issue.save!
+    Issue.transaction do
+      @project = Project.find params[:project_id]
+      @issue = @project.issues.build params.require(:issue).permit(:title, :content, :deadline, :project_id, :user_id)
+      @issue.save!
+    end
 
     redirect_to project_issue_url(@project, @issue)
 
@@ -45,16 +48,18 @@ class IssuesController < ApplicationController
   end
 
   def update
-    @issue =
-        if params[:project_id].present?
-          @project = Project.find params[:project_id]
-          @issue = @project.issues.find params[:id]
-        else
-          Issue.find params[:id]
-        end
+    Issue.transaction do
+      @issue =
+          if params[:project_id].present?
+            @project = Project.find params[:project_id]
+            @issue = @project.issues.find params[:id]
+          else
+            Issue.find params[:id]
+          end
 
-    @issue.attributes = params.require(:issue).permit(:title, :content, :deadline, :project_id, :user_id)
-    @issue.save!
+      @issue.attributes = params.require(:issue).permit(:title, :content, :deadline, :project_id, :user_id)
+      @issue.save!
+    end
 
     if @project.present?
       redirect_to project_issue_url(@project, @issue)
@@ -68,15 +73,17 @@ class IssuesController < ApplicationController
   end
 
   def close
-    @issue =
-        if params[:project_id].present?
-          @project = Project.find params[:project_id]
-          @issue = @project.issues.find params[:id]
-        else
-          Issue.find params[:id]
-        end
+    Issue.transaction do
+      @issue =
+          if params[:project_id].present?
+            @project = Project.find params[:project_id]
+            @issue = @project.issues.find params[:id]
+          else
+            Issue.find params[:id]
+          end
 
-    @issue.close!
+      @issue.close!
+    end
 
     if @project.present?
       redirect_to project_issue_url(@project, @issue)

@@ -1,3 +1,4 @@
+# noinspection RailsChecklist01
 class ProjectsController < ApplicationController
 
   before_action :enforce_login
@@ -11,12 +12,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new params.require(:project).permit(:name, :goal, :deadline)
     Project.transaction do
-      @project.save!
+      @project = Project.new params.require(:project).permit(:name, :goal, :deadline)
+      Project.transaction do
+        @project.save!
+      end
     end
 
-    redirect_to :projects
+    redirect_to project_url(@project)
 
   rescue ActiveRecord::RecordInvalid
     render action: :new
